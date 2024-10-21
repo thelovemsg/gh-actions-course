@@ -14,7 +14,7 @@ jobs:
       - name: Show OS
         run: |
           echo "This job is running on a Windows runner."
-          echo "Runner is #{{runner.name}}"
+          echo "Runner is ${{runner.name}}"
   mac-echo:
     runs-on: macos-latest
     steps:

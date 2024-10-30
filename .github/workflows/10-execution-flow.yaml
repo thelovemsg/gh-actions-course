@@ -4,12 +4,13 @@ on:
     inputs:
       pass-unit-tests:
         type: boolean
+        description: Wheather uniut tests will pass or not
         default: false
 jobs:
   lint-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Link and build
+      - name: Lint and build
         run: echo "Linting and building project"
   unit-tests:
     runs-on: ubuntu-latest
@@ -17,7 +18,7 @@ jobs:
       - name: Running unit tests
         run: echo "Running tests..."
       - name: Failing tests
-        if: !inputs.pass-unit-tests
+        if: ${{!inputs.pass-unit-tests}}
         run: exit 1
   deploy-nonprod:
     needs:
